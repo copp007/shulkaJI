@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RolesController;
+use App\Http\Controllers\Backend\EquipmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,21 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Admin routes
  */
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/admin/equipment', [EquipmentController::class, 'index'])->name('equipment');
+    Route::get('/admin/equipment/map', [EquipmentController::class, 'map'])->name('equipment.map');
+
+
+    Route::get('/admin/equipment/playTone', [EquipmentController::class, 'playTone'])->name('equipment.playTone');    
+
+    Route::get('/admin/equipment/recordAudio', [EquipmentController::class, 'recordAudio'])->name('equipment.recordAudio');
+
+    Route::post('/admin/equipment/uploadAudio', [EquipmentController::class, 'uploadAudio'])->name('equipment.uploadAudio');
+
+
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RolesController::class);
     Route::resource('admins', AdminsController::class);
+    Route::get('/admin/admins/action', [AdminController::class, 'action'])->name('admin.admins.action');
 
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

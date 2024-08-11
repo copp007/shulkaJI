@@ -27,7 +27,16 @@ class AdminsController extends Controller
         $this->checkAuthorization(auth()->user(), ['admin.create']);
 
         $roles = Role::all();
-        return view('backend.pages.admins.create', compact('roles'));
+        return view('backend.pages.admins.create');
+    }
+
+    public function action(): Renderable
+    {
+       // echo 1232;
+        $this->checkAuthorization(auth()->user(), ['admin.action']);
+
+        $roles = Role::all();
+        return view('backend.pages.admins.action');
     }
 
     public function store(Request $request): RedirectResponse

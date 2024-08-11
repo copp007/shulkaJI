@@ -16,7 +16,7 @@
                 <ul class="metismenu" id="menu">
 
                     @if ($usr->can('dashboard.view'))
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                         <ul class="collapse">
                             <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -52,12 +52,28 @@
                                 <li class="{{ Route::is('admin.admins.index')  || Route::is('admin.admins.edit') ? 'active' : '' }}"><a href="{{ route('admin.admins.index') }}">All Admins</a></li>
                             @endif
 
-                            @if ($usr->can('admin.create'))
+                           <!--  @if ($usr->can('admin.create'))
                                 <li class="{{ Route::is('admin.admins.create')  ? 'active' : '' }}"><a href="{{ route('admin.admins.create') }}">Create Admin</a></li>
-                            @endif
+                            @endif -->
                         </ul>
                     </li>
                     @endif
+
+
+                   
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-cloud"></i><span>Equipement</span></a>
+                        <ul class="collapse">
+                            <li class="{{ Route::is('admin.equipment') ? 'active' : '' }}"><a href="{{ route('admin.equipment') }}">Equipement Details</a></li>
+                        </ul>
+                        <ul class="collapse">
+                            <li class="{{ Route::is('admin.equipment.map') ? 'active' : '' }}"><a href="{{ route('admin.equipment.map') }}">Play Equipement</a></li>
+                        </ul>
+                        <ul class="collapse">
+                            <li class="{{ Route::is('admin.equipment.recordAudio') ? 'active' : '' }}"><a href="{{ route('admin.equipment.recordAudio') }}">Record Audio</a></li>
+                        </ul>
+                    </li>
+                   
 
                 </ul>
             </nav>
