@@ -120,6 +120,10 @@
             })
             .then(response => {
                 console.log('Audio uploaded successfully:', response.data);
+                document.getElementById('audio-preview').src = '';
+                document.getElementById('upload-audio').disabled = true;
+                document.getElementById('stop-recording').disabled = true;
+                document.getElementById('start-recording').disabled = false;
                 alert('Audio uploaded successfully');
             })
             .catch(error => {
