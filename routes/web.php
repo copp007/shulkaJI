@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/admin/equipment/map', [EquipmentController::class, 'map'])->name('equipment.map');
 
 
-    Route::get('/admin/equipment/playTone', [EquipmentController::class, 'playTone'])->name('equipment.playTone');    
+    Route::get('/admin/equipment/playTone', [EquipmentController::class, 'playTone'])->name('equipment.playTone');
 
     Route::get('/admin/equipment/recordAudio', [EquipmentController::class, 'recordAudio'])->name('equipment.recordAudio');
 
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RolesController::class);
     Route::resource('admins', AdminsController::class);
-    Route::get('/admin/admins/action', [AdminController::class, 'action'])->name('admin.admins.action');
+    Route::get('/admin/admins/action', [AdminsController::class, 'action'])->name('admin.admins.action');
 
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

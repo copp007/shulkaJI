@@ -52,18 +52,10 @@
                 <div class="card-body">
                     <h4 class="header-title float-left">{{ __('Record Audio') }}</h4>
                     <!-- Map Container -->
-
-
-                    
-
                         <button id="start-recording">Start Recording</button>
                         <button id="stop-recording" disabled>Stop Recording</button>
                         <button id="upload-audio" disabled>Upload Audio</button>
                         <audio id="audio-preview" controls></audio>
-
-
-
-                    
                 </div>
             </div>
         </div>
@@ -80,14 +72,10 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 
-
     <script>
         const uploadUrl = "{{ route('admin.equipment.uploadAudio') }}";
-
-
         let mediaRecorder;
         let audioBlob;
-
         document.getElementById('start-recording').addEventListener('click', () => {
             navigator.mediaDevices.getUserMedia({ audio: true })
                 .then(stream => {
@@ -117,13 +105,11 @@
         });
 
         document.getElementById('upload-audio').addEventListener('click', () => {
-
             //console.log(audioBlob);
             if (!audioBlob) {
                 alert('No audio to upload');
                 return;
             }
-
             const formData = new FormData();
             formData.append('audio', audioBlob, 'recording.mp3'); // Change the file name and extension as needed
 
@@ -141,9 +127,6 @@
                 alert('Error uploading audio');
             });
         });
-
-
-
     </script>
 
 @endsection
